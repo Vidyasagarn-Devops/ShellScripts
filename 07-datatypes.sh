@@ -1,8 +1,8 @@
 #!/bin/bash
 
-n01=$1
-n02=$2
+no1=$1
+no2=$2
 
 sum=$(($no1+$no2))
 
-echo "Toatl of $n01 and $n02 is : $sum"
+echo "Toatl of $no1 and $no2 is : $sum"
