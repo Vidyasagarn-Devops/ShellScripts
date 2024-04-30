@@ -12,11 +12,11 @@ fi
 
 dnf install mysql -y
 
-if [ $? ne 0]
+if [ $? ne 0 ]
 then
-    echo " Installation of mysql......failed"
+    echo " Installation of mysql......failed "
     exit 1
 fi
 
 
-echo ' is Script Procedding"
+echo "is Script Procedding"
