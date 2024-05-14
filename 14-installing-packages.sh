@@ -37,7 +37,9 @@ if [ $? -eq 0 ]
 then
     echo -e "$i Already Installed.... $Y SKIPPING $N"
 else
+    dnf install $i -y &>>$LOG_FILE
     echo "$i Not Installed.... need to install"
+    VALIDATE $? "Installation of $i"
 fi
 done
 
