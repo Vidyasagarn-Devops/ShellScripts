@@ -4,6 +4,10 @@ USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -31,7 +35,7 @@ echo " Package to install: $i"
 dnf list installed $i &>>$LOG_FILE
 if [ $? -eq 0 ]
 then
-    echo "$i Already Installed....SKIPPING"
+    echo -e "$i Already Installed.... $Y SKIPPING $N"
 else
     echo "$i Not Installed.... need to install"
 fi
