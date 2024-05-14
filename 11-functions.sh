@@ -2,6 +2,8 @@
 
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)
+SCRIPT_NAME=$($0 | cut -d "." -f1)
+LOG_FILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -22,11 +24,11 @@ else
     echo "You are super user"
 fi
 
-dnf install mysql -y
+dnf install mysql -y &>>$LOG_FILE
 
 VALIDATE $? "installing mysql"
 
-dnf install git -y
+dnf install git -y &>>$LOG_FILE
 
 VALIDATE $? "installing git"
 
